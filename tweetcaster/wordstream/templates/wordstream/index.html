@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block index %}
+<form action="{% url 'wordstream:plot' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input class="btn btn-xs btn-success" type="submit" value="Submit">
+</form>
+{% endblock %}
+
+{% block sometweets %}
+{% if tweet_text %}
+    <h4>In the meantime, here are some tweets: </h4>
+    <table class="table table-striped table-condensed">
+        {% for tweet in tweet_text %}
+        <tr>
+            <td><a href="https://twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id }}">{{ tweet.text }}</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <h4>
+        No tweets available.
+    </h4>
+{% endif %}
+{% endblock %}

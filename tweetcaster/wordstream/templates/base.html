@@ -1,0 +1,65 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="stylesheet" href="{% static 'css/epoch.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+        <title>Twitter Word Stream Analysis</title>
+        <!--<script src="//js.pusher.com/3.0/pusher.min.js"></script>-->
+        <!--<script>-->
+          <!--var pusher = new Pusher('b87e84a0194862d39bdd');-->
+          <!--var channel = pusher.subscribe('my-channel');-->
+          <!--channel.bind('my-event', function(data) {-->
+              <!--console.log('An event was triggered with message: ' + data.message);-->
+          <!--});-->
+        <!--</script>-->
+    </head>
+    <body>
+        <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active" name="home_button">
+               <a href="{% url 'wordstream:index' %}">Home</a></li>
+            </li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Twitter Word Stream (Alpha)</h3>
+      </div>
+
+      <div class="jumbotron">
+          <h3>{{ header }}</h3>
+          {% block index %}{% endblock %}
+          {% block plot %}{% endblock %}
+      </div>
+
+      <div class="row marketing">
+          {% block sometweets %}{% endblock %}
+      </div>
+
+      <footer class="footer">
+        <p>&copy; UTSA Summer Project 2015</p>
+      </footer>
+
+    </div> <!-- /container -->
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="//js.pusher.com/3.0/pusher.min.js"></script>
+        <script src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
+        <script src="{% static 'bower_components/underscore/underscore-min.js' %}"></script>
+        <script src="{% static 'bower_components/d3/d3.min.js' %}"></script>
+        <script src="{% static 'bower_components/epoch/epoch.min.js' %}"></script>
+        <!--<script>var apiURL = "{% static 'js/' %}"; console.log(url);</script>-->
+        <script src="{% static 'js/plot.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    </body>
+</html>

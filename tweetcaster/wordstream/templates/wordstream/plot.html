@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block plot %}
+    {% if keywords == 'Enter keyword(s)' %}
+        <!-- <form action="{% url 'wordstream:plot' %}" method="post"> -->
+        <form action="{% url 'wordstream:plot' %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input class="btn btn-xs btn-success" type="submit" value="Submit">
+        </form>
+    {% else %}
+        <div class="graph-container"></div>
+    {% endif %}
+
+{% endblock %}
