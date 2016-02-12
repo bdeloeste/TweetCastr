@@ -1,23 +1,19 @@
-import pymongo
 import json
-import tweepy
 import os
 
+import pymongo
+import tweepy
+from django.http import HttpResponse
 from django.shortcuts import render
-from django.http import HttpResponseRedirect, HttpResponse
-from django.template import RequestContext, loader
-from django.shortcuts import render
-from django.core.urlresolvers import reverse
 
-from django.views.static import serve
 # Create your views here.
 
 from .forms import SearchForm
 
-client = pymongo.MongoClient('')
+client = pymongo.MongoClient()
 
-db = client.get_default_database()
-collection = db.test_collection
+db = client.test
+collection = db.coll1
 
 consumer_key = ""
 consumer_secret = ""

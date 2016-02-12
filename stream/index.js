@@ -24,7 +24,7 @@ var assert = require('assert');
 var mongodb_url = '';
 
 // App variables
-var file_url = 'https://tweetcaster.herokuapp.com/static/js/config.js';
+var file_url = 'http://localhost:8000/wordstream/static/js/config.js';
 var DOWNLOAD_DIR = './';
 
 var keyword_submit = false;
@@ -46,7 +46,7 @@ var request = function() {
          console.log("Deleted config.js");
       }
    });
-   https.get(file_url, function(response) {
+   http.get(file_url, function(response) {
         var status_code = response['statusCode'];
         if(status_code == 404) {
            console.log("HI");
@@ -61,7 +61,7 @@ var request = function() {
 }
 
 var check_submit = function() {
-   https.get('https://tweetcaster.herokuapp.com/static/js/submit.json', function(response) {
+   http.get('http://localhost:8000/wordstream/static/js/submit.json', function(response) {
       var body = '';
 
       response.on('data', function(chunk) {
@@ -346,8 +346,6 @@ var download_file_httpget = function(file_url) {
                  statsPayload = undefined;
 
                  statsTime = currentTime;
-
-                 // heapdump.writeSnapshot("/Users/Rob/Desktop/" + Date.now() + ".heapsnapshot");
 
                  setTimeout(function() {
                    updateStats();
