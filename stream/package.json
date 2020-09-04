@@ -16,7 +16,7 @@
     "pusher": "~1.0.1",
     "request": "~2.45.0",
     "natural": "~0.2.1",
-    "mongodb": "~2.0",
+    "mongodb": "~3.6",
     "stopwords": "~0.0.5"
   }
 }
