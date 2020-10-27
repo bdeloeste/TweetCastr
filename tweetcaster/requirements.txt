@@ -1,7 +1,7 @@
 cffi==1.2.1
 click==5.1
 color-transfer==0.1
-cryptography==1.0
+cryptography==3.2
 Cython==0.23.1
 dj-database-url==0.3.0
 dj-static==0.0.6
