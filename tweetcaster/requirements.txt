@@ -72,5 +72,5 @@ update-checker==0.11
 urllib3==1.11
 vincent==0.4.4
 virtualenv==12.0.7
-Werkzeug==0.10.4
+Werkzeug==0.15.3
 whitenoise==2.0.3
